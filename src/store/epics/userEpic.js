@@ -1,11 +1,10 @@
-import 'rxjs-compat';
 import { ajax } from 'rxjs/ajax'
 import { mergeMap, map, catchError, retryWhen } from 'rxjs/operators';
 import { ofType } from 'redux-observable';
 import { fetchUser, fetchSuccess, fetchFailed } from '../slices/userSlice'
 import { handleError, defaultRetryStrategy } from './helper'
 
-export const getUsers = action$ =>
+const getUsers = action$ =>
     action$.pipe(ofType(fetchUser.type),
         mergeMap(action =>
             ajax.getJSON("https://jsonplaceholder.typicode.com/users")
@@ -18,3 +17,4 @@ export const getUsers = action$ =>
         )
     )
 
+export default [getUsers];

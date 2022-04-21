@@ -1,6 +1,7 @@
 import { useMemo, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addUser, deleteUser, updateUser, fetchUser } from './store/slices/userSlice';
+import * as userActions from './store/slices/userSlice';
 import { toggle } from './store/slices/themeSlice';
 
 /*
